@@ -22,14 +22,12 @@ stages:
             displayName: 'Terraform Install'
             inputs:
               terraformVersion: ${{ parameters.terraformVersion }}
-          - checkout: none
-
+  
           - task: CmdLine@2       
             inputs:
               script: |
                 terraform init -backend-config="/terraform/variables/backend_oracle.tf"
               workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
-          - checkout: none 
 
           - task: CmdLine@2
             inputs:
