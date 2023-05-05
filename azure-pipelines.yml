@@ -86,4 +86,3 @@ stages:
                   script: |
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan -auto-approve"
                   workingDirectory: '$(System.DefaultWorkingDirectory)/linux'
-              - checkout: none
