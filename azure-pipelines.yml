@@ -22,6 +22,7 @@ stages:
             displayName: 'Terraform Install'
             inputs:
               terraformVersion: ${{ parameters.terraformVersion }}
+          - checkout: none
 
           - task: CmdLine@2       
             inputs:
@@ -73,6 +74,7 @@ stages:
                 displayName: 'Terraform Install'
                 inputs:
                   terraformVersion: ${{ parameters.terraformVersion }}
+              - checkout: none
                   
               - task: ExtractFiles@1
                 displayName: 'Extract Plan Artifact'
@@ -80,9 +82,11 @@ stages:
                   archiveFilePatterns: '$(Pipeline.Workspace)/oci-vcn-subnet-sl-plan/$(Build.BuildNumber).tgz'
                   destinationFolder: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
                   cleanDestinationFolder: true
+              - checkout: none
 
               - task: CmdLine@2
                 inputs:
                   script: |
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan -auto-approve"
                   workingDirectory: '$(System.DefaultWorkingDirectory)/linux'
+              - checkout: none
