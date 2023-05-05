@@ -38,24 +38,6 @@ stages:
               workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
           - checkout: none
 
-          - task: ArchiveFiles@2
-            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-            displayName: 'Create Plan Artifact'
-            inputs:
-              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
-              includeRootFolder: false
-              archiveType: 'tar'
-              tarCompression: 'gz'
-              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
-              replaceExistingArchive: true          
-
-          - task: PublishPipelineArtifact@1
-            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-            displayName: 'Publish Plan Artifact'
-            inputs:
-              targetPath: '$(Build.ArtifactStagingDirectory)'
-              artifactName: 'oci-vcn-subnet-sl-plan'  
-
   - stage: 'OCI_VCN_Subnet_SecurityList_Apply'
     dependsOn: 'OCI_VCN_Subnet_SecurityList'
     displayName: OCI VCN Subnet Security List Apply
