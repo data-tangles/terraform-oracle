@@ -32,8 +32,26 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
-                terraform plan
+                terraform plan -var-file="/terraform/variables/terraform-oracle/core_instance/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
               workingDirectory: '$(System.DefaultWorkingDirectory)/core_instance/'
+
+          - task: ArchiveFiles@2
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Create Plan Artifact'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/core_instance/'
+              includeRootFolder: false
+              archiveType: 'tar'
+              tarCompression: 'gz'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
+              replaceExistingArchive: true
+            
+          - task: PublishPipelineArtifact@1
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Publish Plan Artifact'
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'oci-core-instance-plan'
 
   - stage: 'OCICoreInstanceApply'
     dependsOn: 'OCICoreInstance'
@@ -54,8 +72,15 @@ stages:
                 inputs:
                   terraformVersion: ${{ parameters.terraformVersion }}
                   
+              - task: ExtractFiles@1
+                displayName: 'Extract Plan Artifact'
+                inputs:
+                  archiveFilePatterns: '$(Pipeline.Workspace)/oci-core-instance-plan/$(Build.BuildNumber).tgz'
+                  destinationFolder: '$(System.DefaultWorkingDirectory)/core_instance/'
+                  cleanDestinationFolder: true
+
               - task: CmdLine@2
                 inputs:
                   script: |
-                    terraform apply
+                    terraform apply ${BUILD_BUILDNUMBER}.tfplan
                   workingDirectory: '$(System.DefaultWorkingDirectory)/core_instance/'
