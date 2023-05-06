@@ -1,0 +1,86 @@
+parameters:
+  - name: terraformVersion
+    type: string
+    default: 'latest'
+
+trigger:
+- none
+
+stages:
+  - stage: 'OCICoreInstance'
+    dependsOn: []
+    displayName: 'OCI Core Instance'
+
+    jobs:
+      - job: 'terraforminitplan'
+        displayName: 'Initialize and Plan Terraform for OCI Core Instance'
+        pool: Self-Hosted
+
+        steps:
+
+          - task: TerraformInstaller@0
+            displayName: 'Terraform Install'
+            inputs:
+              terraformVersion: ${{ parameters.terraformVersion }}
+  
+          - task: CmdLine@2       
+            inputs:
+              script: |
+                terraform init -backend-config="/terraform/variables/backend_oracle.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/core_instance/'
+
+          - task: CmdLine@2
+            inputs:
+              script: |
+                terraform plan -var-file="/terraform/variables/terraform-oracle/core_instance/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+              workingDirectory: '$(System.DefaultWorkingDirectory)/core_instance/'
+
+          - task: ArchiveFiles@2
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Create Plan Artifact'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/core_instance/'
+              includeRootFolder: false
+              archiveType: 'tar'
+              tarCompression: 'gz'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
+              replaceExistingArchive: true
+            
+          - task: PublishPipelineArtifact@1
+            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            displayName: 'Publish Plan Artifact'
+            inputs:
+              targetPath: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'oci-core-instance-plan'
+
+  - stage: 'OCICoreInstanceApply'
+    dependsOn: 'OCICoreInstance'
+    displayName: OCI Core Instance Apply
+
+    jobs:
+      - deployment: 'TerraformApplyOCICoreInstance'   
+        displayName: ' Apply Terraform for OCI COre Instance'
+        pool: 'Self-Hosted'
+        environment: 'Oracle-Prod'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+
+              - task: TerraformInstaller@0
+                displayName: 'Terraform Install'
+                inputs:
+                  terraformVersion: ${{ parameters.terraformVersion }}
+                  
+              - task: ExtractFiles@1
+                displayName: 'Extract Plan Artifact'
+                inputs:
+                  archiveFilePatterns: '$(Pipeline.Workspace)/oci-core-instance-plan/$(Build.BuildNumber).tgz'
+                  destinationFolder: '$(System.DefaultWorkingDirectory)/core_instance/'
+                  cleanDestinationFolder: true
+
+              - task: CmdLine@2
+                inputs:
+                  script: |
+                    terraform apply ${BUILD_BUILDNUMBER}.tfplan
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/core_instance/'
