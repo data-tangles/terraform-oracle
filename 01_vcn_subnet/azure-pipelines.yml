@@ -83,4 +83,4 @@ stages:
                 inputs:
                   script: |
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan -auto-approve
-                  workingDirectory: '$(System.DefaultWorkingDirectory)/linux'
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
