@@ -32,7 +32,7 @@ stages:
           - task: CmdLine@2
             inputs:
               script: |
-                terraform plan -var-file="/terraform/variables/terraform-oracle/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+                terraform plan -var-file="/terraform/variables/terraform-oracle/vcn_subnet/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
               workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
 
   - stage: 'OCI_VCN_Subnet_SecurityList_Apply'
