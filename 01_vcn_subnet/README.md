@@ -6,7 +6,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.107.0 |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.119.0 |
 
 ## Providers
 
@@ -22,9 +22,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [oci_core_security_list.vm_sl](https://registry.terraform.io/providers/oracle/oci/4.107.0/docs/resources/core_security_list) | resource |
-| [oci_core_subnet.vm_subnet](https://registry.terraform.io/providers/oracle/oci/4.107.0/docs/resources/core_subnet) | resource |
-| [oci_core_vcn.main_vcn](https://registry.terraform.io/providers/oracle/oci/4.107.0/docs/resources/core_vcn) | resource |
+| [oci_core_security_list.vm_sl](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_security_list) | resource |
+| [oci_core_subnet.vm_subnet](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_subnet) | resource |
+| [oci_core_vcn.main_vcn](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_vcn) | resource |
 
 ## Inputs
 
