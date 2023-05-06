@@ -82,5 +82,5 @@ stages:
               - task: CmdLine@2
                 inputs:
                   script: |
-                    terraform apply ${BUILD_BUILDNUMBER}.tfplan -auto-approve
+                    terraform apply ${BUILD_BUILDNUMBER}.tfplan
                   workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
