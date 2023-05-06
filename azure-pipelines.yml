@@ -34,7 +34,6 @@ stages:
               script: |
                 terraform plan -var-file="/terraform/variables/terraform-oracle/prod.tfvars -out ${BUILD_BUILDNUMBER}.tfplan"
               workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
-          - checkout: none
 
   - stage: 'OCI_VCN_Subnet_SecurityList_Apply'
     dependsOn: 'OCI_VCN_Subnet_SecurityList'
@@ -54,7 +53,6 @@ stages:
                 displayName: 'Terraform Install'
                 inputs:
                   terraformVersion: ${{ parameters.terraformVersion }}
-              - checkout: none
                   
               - task: ExtractFiles@1
                 displayName: 'Extract Plan Artifact'
@@ -62,11 +60,9 @@ stages:
                   archiveFilePatterns: '$(Pipeline.Workspace)/oci-vcn-subnet-sl-plan/$(Build.BuildNumber).tgz'
                   destinationFolder: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
                   cleanDestinationFolder: true
-              - checkout: none
 
               - task: CmdLine@2
                 inputs:
                   script: |
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan -auto-approve"
                   workingDirectory: '$(System.DefaultWorkingDirectory)/linux'
-              - checkout: none
