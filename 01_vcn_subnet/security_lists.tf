@@ -2,7 +2,7 @@ resource "oci_core_security_list" "vm_sl" {
   display_name   = var.vm_sl_name
   compartment_id = var.compartment_id
   vcn_id         = oci_core_vcn.main_vcn.id
-  defined_tags   = merge(local.common_tags)
+  freeform_tags  = merge(local.common_tags)
 
   # Allow all inbound traffic within the VCN
   ingress_security_rules {
