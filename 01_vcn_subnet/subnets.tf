@@ -6,5 +6,5 @@ resource "oci_core_subnet" "vm_subnet" {
 
   defined_tags      = merge(local.common_tags)
   display_name      = var.vm_subnet_display_name
-  security_list_ids = oci_core_security_list.vm_sl.id
+  security_list_ids = [oci_core_security_list.vm_sl.id]
 }
