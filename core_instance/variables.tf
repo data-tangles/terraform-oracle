@@ -68,5 +68,10 @@ variable "image_source_id" {
   description = "Image source ID for Core Instance"
 }
 
+variable "ssh_public_key" {
+  type        = string
+  description = "SSH Public Key for auth to Core Instance"
+}
+
 
 

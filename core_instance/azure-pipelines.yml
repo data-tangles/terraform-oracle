@@ -26,7 +26,7 @@ stages:
           - task: CmdLine@2       
             inputs:
               script: |
-                terraform init -backend-config="/terraform/variables/backend_oracle.tf"
+                terraform init -backend-config="/terraform/variables/terraform-oracle/core_instance/backend_oracle_core_instance.tf"
               workingDirectory: '$(System.DefaultWorkingDirectory)/core_instance/'
 
           - task: CmdLine@2

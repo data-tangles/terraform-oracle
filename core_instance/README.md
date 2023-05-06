@@ -14,9 +14,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_local"></a> [local](#provider\_local) | 2.4.0 |
 | <a name="provider_oci"></a> [oci](#provider\_oci) | 4.107.0 |
-| <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.4 |
 
 ## Modules
 
@@ -26,10 +24,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [local_file.private_key](https://registry.terraform.io/providers/hashicorp/local/2.4.0/docs/resources/file) | resource |
-| [local_file.public_key](https://registry.terraform.io/providers/hashicorp/local/2.4.0/docs/resources/file) | resource |
 | [oci_core_instance.linux_instance](https://registry.terraform.io/providers/oracle/oci/4.107.0/docs/resources/core_instance) | resource |
-| [tls_private_key.oci_instance_key](https://registry.terraform.io/providers/hashicorp/tls/4.0.4/docs/resources/private_key) | resource |
 
 ## Inputs
 
@@ -46,6 +41,7 @@ No modules.
 | <a name="input_provider_tenancy_ocid"></a> [provider\_tenancy\_ocid](#input\_provider\_tenancy\_ocid) | Tenant OCID | `string` | n/a | yes |
 | <a name="input_provider_user_ocid"></a> [provider\_user\_ocid](#input\_provider\_user\_ocid) | User OCID | `string` | n/a | yes |
 | <a name="input_shape"></a> [shape](#input\_shape) | Shape for Core Instance | `string` | n/a | yes |
+| <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | SSH Public Key for auth to Core Instance | `string` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Subnet ID for Core Instance | `string` | n/a | yes |
 | <a name="input_tag_environment"></a> [tag\_environment](#input\_tag\_environment) | Tag Value for Environment | `string` | n/a | yes |
 | <a name="input_tag_purpose"></a> [tag\_purpose](#input\_tag\_purpose) | Tag Value for Purpose | `string` | n/a | yes |

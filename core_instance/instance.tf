@@ -1,18 +1,3 @@
-resource "tls_private_key" "oci_instance_key" {
-  algorithm = "RSA"
-  rsa_bits  = 2048
-}
-
-resource "local_file" "private_key" {
-  content  = tls_private_key.oci_instance_key.private_key_pem
-  filename = "sshkey"
-}
-
-resource "local_file" "public_key" {
-  content  = tls_private_key.oci_instance_key.public_key_openssh
-  filename = "sshkey.pub"
-}
-
 resource "oci_core_instance" "linux_instance" {
   compartment_id      = var.compartment_id
   availability_domain = var.availability_domain
@@ -33,7 +18,7 @@ resource "oci_core_instance" "linux_instance" {
   }
 
   metadata = {
-    ssh_authorized_keys = file("${path.module}/${local_file.public_key.filename}")
+    ssh_authorized_keys = file(var.ssh_public_key)
   }
 
 }
