@@ -11,7 +11,6 @@ resource "oci_core_internet_gateway" "main_internet_gateway" {
     display_name = var.internet_gateway_display_name
     enabled = "true"
     freeform_tags = merge(local.common_tags)
-    route_table_id = oci_core_route_table.main_route_table.id
 }
 
 resource "oci_core_route_table" "main_route_table" {
