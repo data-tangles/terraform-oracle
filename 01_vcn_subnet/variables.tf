@@ -43,6 +43,17 @@ variable "vcn_display_name" {
   description = "Display name for the VCN"
 }
 
+variable "internet_gateway_display_name" {
+  type        = string
+  description = "Display name for the Internet Gateway"
+}
+
+variable "route_table_display_name" {
+  type        = string
+  description = "Display name for the route table"
+}
+
+
 variable "vm_subnet_cidr_block" {
   type        = string
   description = "CIDR formatted block for VM subnet"
