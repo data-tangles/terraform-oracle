@@ -1,7 +1,6 @@
 resource "oci_core_instance" "linux_instance" {
-  compartment_id      = var.compartment_id
   availability_domain = var.availability_domain
-  fault_domain        = var.fault_domain
+  compartment_id      = var.compartment_id
   shape               = var.shape
   display_name        = var.instance_display_name
 

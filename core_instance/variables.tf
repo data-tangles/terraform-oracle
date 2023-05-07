@@ -43,11 +43,6 @@ variable "availability_domain" {
   description = "Availability Domain for Core Instance"
 }
 
-variable "fault_domain" {
-  type        = string
-  description = "Fault Domain for Core Instance"
-}
-
 variable "shape" {
   type        = string
   description = "Shape for Core Instance"

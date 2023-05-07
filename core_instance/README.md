@@ -12,7 +12,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_oci"></a> [oci](#provider\_oci) | 4.107.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | 4.119.0 |
 
 ## Modules
 
@@ -30,7 +30,6 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_availability_domain"></a> [availability\_domain](#input\_availability\_domain) | Availability Domain for Core Instance | `string` | n/a | yes |
 | <a name="input_compartment_id"></a> [compartment\_id](#input\_compartment\_id) | Compartment ID for Oracle Tenant | `string` | n/a | yes |
-| <a name="input_fault_domain"></a> [fault\_domain](#input\_fault\_domain) | Fault Domain for Core Instance | `string` | n/a | yes |
 | <a name="input_image_source_id"></a> [image\_source\_id](#input\_image\_source\_id) | Image source ID for Core Instance | `string` | n/a | yes |
 | <a name="input_instance_display_name"></a> [instance\_display\_name](#input\_instance\_display\_name) | Shape for Core Instance | `string` | n/a | yes |
 | <a name="input_provider_fingerprint"></a> [provider\_fingerprint](#input\_provider\_fingerprint) | Fingerprint for the key pair | `string` | n/a | yes |
