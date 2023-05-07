@@ -1,9 +1,5 @@
-data "oci_identity_availability_domains" "ads" {
-  compartment_id = var.compartment_id
-}
-
 resource "oci_core_instance" "linux_instance" {
-  availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
+  availability_domain = var.availability_domain
   compartment_id      = var.compartment_id
   shape               = var.shape
   display_name        = var.instance_display_name

@@ -38,6 +38,11 @@ variable "compartment_id" {
   description = "Compartment ID for Oracle Tenant"
 }
 
+variable "availability_domain" {
+  type        = string
+  description = "Availability Domain for Core Instance"
+}
+
 variable "shape" {
   type        = string
   description = "Shape for Core Instance"

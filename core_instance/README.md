@@ -23,12 +23,12 @@ No modules.
 | Name | Type |
 |------|------|
 | [oci_core_instance.linux_instance](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_instance) | resource |
-| [oci_identity_availability_domains.ads](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/data-sources/identity_availability_domains) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_availability_domain"></a> [availability\_domain](#input\_availability\_domain) | Availability Domain for Core Instance | `string` | n/a | yes |
 | <a name="input_compartment_id"></a> [compartment\_id](#input\_compartment\_id) | Compartment ID for Oracle Tenant | `string` | n/a | yes |
 | <a name="input_image_source_id"></a> [image\_source\_id](#input\_image\_source\_id) | Image source ID for Core Instance | `string` | n/a | yes |
 | <a name="input_instance_display_name"></a> [instance\_display\_name](#input\_instance\_display\_name) | Shape for Core Instance | `string` | n/a | yes |
