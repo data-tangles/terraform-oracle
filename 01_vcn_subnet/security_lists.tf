@@ -16,6 +16,10 @@ resource "oci_core_security_list" "vm_sl" {
     source   = var.on_prem_ip
     protocol = "all"
   }
+  ingress_security_rules {
+    source = var.onprem_subnet_cidr
+    protocol = "all"
+  }
 
   # Allow all outbound traffic from the VCN
   egress_security_rules {
