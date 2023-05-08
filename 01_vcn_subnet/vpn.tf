@@ -23,7 +23,7 @@ data "oci_core_ipsec_connection_tunnels" "oci_ipsec_connection_tunnels" {
 }
 
 resource "oci_core_ipsec_connection_tunnel_management" "oci_ipsec_tunnel_1" {
-  ipsec_id      = oci_core_ipsec.oci_ipsec_connection
+  ipsec_id      = oci_core_ipsec.oci_ipsec_connection.id
   display_name  = "oci-ipsec-tunnel-01"
   tunnel_id     = data.oci_core_ipsec_connection_tunnels.oci_ipsec_connection_tunnels.ip_sec_connection_tunnels[0].id
   routing       = "STATIC"
@@ -40,7 +40,7 @@ resource "null_resource" "wait" {
 
 resource "oci_core_ipsec_connection_tunnel_management" "oci_ipsec_tunnel_2" {
   depends_on    = [null_resource.wait]
-  ipsec_id      = oci_core_ipsec.oci_ipsec_connection
+  ipsec_id      = oci_core_ipsec.oci_ipsec_connection.id
   display_name  = "oci-ipsec-tunnel-02"
   tunnel_id     = data.oci_core_ipsec_connection_tunnels.oci_ipsec_connection_tunnels.ip_sec_connection_tunnels[1].id
   routing       = "STATIC"
