@@ -25,3 +25,15 @@ resource "oci_core_route_table" "main_route_table" {
         destination_type = "CIDR_BLOCK"
   }
 }
+
+resource "oci_core_drg" "main_vcn_drg" {
+  compartment_id = var.tenant1_compartment_ocid
+  display_name   = var.drg_display_name
+  freeform_tags = merge(local.common_tags)
+}
+
+resource "oci_core_drg_attachment" "main_vcn_drg_attachment" {
+  drg_id   = oci_core_drg.main_vcn_drg.id
+  vcn_id   = oci_core_vcn.main_vcn.id
+  freeform_tags = merge(local.common_tags)
+}

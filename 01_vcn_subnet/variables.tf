@@ -53,6 +53,41 @@ variable "route_table_display_name" {
   description = "Display name for the route table"
 }
 
+variable "drg_display_name" {
+  type        = string
+  description = "Display name for the Dynamic Routing Gateway"
+}
+
+variable "cpe_display_name" {
+  type        = string
+  description = "Display name for the CPE"
+}
+
+variable "cpe_ip_address" {
+  type        = string
+  description = "IP address of the CPE"
+}
+
+variable "onprem_subnet_cidr" {
+  type        = list(string)
+  description = "Subnet CIDR of on premise network"
+}
+
+variable "ipsec_connection_display_name" {
+  type        = string
+  description = "Display name of IPSec connection"
+}
+
+variable "ipsec_secret_tunnel_1" {
+  type        = string
+  description = "Secret for 1st IPSec tunnel"
+}
+
+variable "ipsec_secret_tunnel_2" {
+  type        = string
+  description = "Secret for 2nd IPsec tunnel"
+}
+
 variable "vm_subnet_cidr_block" {
   type        = string
   description = "CIDR formatted block for VM subnet"
