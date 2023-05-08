@@ -23,7 +23,13 @@ resource "oci_core_route_table" "main_route_table" {
         description = "Internet"
         destination = "0.0.0.0/0"
         destination_type = "CIDR_BLOCK"
-  }
+    }
+    route_rules {
+        network_entity_id = oci_core_drg.main_vcn_drg.id
+        description = "On-Premise"
+        destination = var.onprem_subnet_cidr
+        destination_type = "CIDR_BLOCK"
+    }
 }
 
 resource "oci_core_drg" "main_vcn_drg" {

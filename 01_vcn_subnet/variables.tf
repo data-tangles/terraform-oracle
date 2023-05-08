@@ -69,7 +69,7 @@ variable "cpe_ip_address" {
 }
 
 variable "onprem_subnet_cidr" {
-  type        = list(string)
+  type        = string
   description = "Subnet CIDR of on premise network"
 }
 
