@@ -4,6 +4,10 @@ terraform {
       source  = "oracle/oci"
       version = "4.119.0"
     }
+    null = {
+      source  = "hashicorp/null"
+      version = "3.2.1"
+    }
   }
   backend "remote" {}
 }
