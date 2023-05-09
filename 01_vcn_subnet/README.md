@@ -50,7 +50,6 @@ No modules.
 | <a name="input_ipsec_connection_display_name"></a> [ipsec\_connection\_display\_name](#input\_ipsec\_connection\_display\_name) | Display name of IPSec connection | `string` | n/a | yes |
 | <a name="input_ipsec_secret_tunnel_1"></a> [ipsec\_secret\_tunnel\_1](#input\_ipsec\_secret\_tunnel\_1) | Secret for 1st IPSec tunnel | `string` | n/a | yes |
 | <a name="input_ipsec_secret_tunnel_2"></a> [ipsec\_secret\_tunnel\_2](#input\_ipsec\_secret\_tunnel\_2) | Secret for 2nd IPsec tunnel | `string` | n/a | yes |
-| <a name="input_on_prem_ip"></a> [on\_prem\_ip](#input\_on\_prem\_ip) | Public IP of on prem environment | `string` | n/a | yes |
 | <a name="input_onprem_subnet_cidr_1"></a> [onprem\_subnet\_cidr\_1](#input\_onprem\_subnet\_cidr\_1) | Subnet CIDR of on premise network | `string` | n/a | yes |
 | <a name="input_onprem_subnet_cidr_2"></a> [onprem\_subnet\_cidr\_2](#input\_onprem\_subnet\_cidr\_2) | Subnet CIDR of on premise network | `string` | n/a | yes |
 | <a name="input_provider_fingerprint"></a> [provider\_fingerprint](#input\_provider\_fingerprint) | Fingerprint for the key pair | `string` | n/a | yes |

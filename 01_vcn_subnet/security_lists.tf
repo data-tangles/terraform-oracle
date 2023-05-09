@@ -13,10 +13,6 @@ resource "oci_core_security_list" "vm_sl" {
 
   # Allow traffic from on prem
   ingress_security_rules {
-    source   = var.on_prem_ip
-    protocol = "all"
-  }
-  ingress_security_rules {
     source   = var.onprem_subnet_cidr_1
     protocol = "all"
   }
