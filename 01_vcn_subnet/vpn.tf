@@ -12,7 +12,7 @@ resource "oci_core_ipsec" "oci_ipsec_connection" {
   cpe_id         = oci_core_cpe.onprem_cpe.id
   drg_id         = oci_core_drg.main_vcn_drg.id
 
-  static_routes             = [var.onprem_subnet_cidr_1, var.onprem_subnet_cidr_1]
+  static_routes             = [var.onprem_subnet_cidr_1, var.onprem_subnet_cidr_2]
   cpe_local_identifier      = var.cpe_ip_address
   cpe_local_identifier_type = "IP_ADDRESS"
   display_name              = var.ipsec_connection_display_name
