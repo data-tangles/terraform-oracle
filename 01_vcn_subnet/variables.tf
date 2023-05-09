@@ -68,7 +68,12 @@ variable "cpe_ip_address" {
   description = "IP address of the CPE"
 }
 
-variable "onprem_subnet_cidr" {
+variable "onprem_subnet_cidr_1" {
+  type        = string
+  description = "Subnet CIDR of on premise network"
+}
+
+variable "onprem_subnet_cidr_2" {
   type        = string
   description = "Subnet CIDR of on premise network"
 }
