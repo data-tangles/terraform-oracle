@@ -14,7 +14,6 @@ resource "oci_core_internet_gateway" "main_internet_gateway" {
 }
 
 resource "oci_core_route_table" "main_route_table" {
-<<<<<<< HEAD
     compartment_id = var.compartment_id
     vcn_id = oci_core_vcn.main_vcn.id
     display_name = var.route_table_display_name
@@ -37,24 +36,6 @@ resource "oci_core_route_table" "main_route_table" {
         destination = var.onprem_subnet_cidr_2
         destination_type = "CIDR_BLOCK"
     }
-=======
-  compartment_id = var.compartment_id
-  vcn_id         = oci_core_vcn.main_vcn.id
-  display_name   = var.route_table_display_name
-  freeform_tags  = merge(local.common_tags)
-  route_rules {
-    network_entity_id = oci_core_internet_gateway.main_internet_gateway.id
-    description       = "Internet"
-    destination       = "0.0.0.0/0"
-    destination_type  = "CIDR_BLOCK"
-  }
-  route_rules {
-    network_entity_id = oci_core_drg.main_vcn_drg.id
-    description       = "On-Premise"
-    destination       = var.onprem_subnet_cidr
-    destination_type  = "CIDR_BLOCK"
-  }
->>>>>>> 058bc53f163cd23e11e2a40cca22fb2e8e63c34e
 }
 
 resource "oci_core_drg" "main_vcn_drg" {
