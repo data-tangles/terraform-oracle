@@ -17,12 +17,16 @@ resource "oci_core_security_list" "vm_sl" {
     protocol = "all"
   }
   ingress_security_rules {
+<<<<<<< HEAD
     source = var.onprem_subnet_cidr_1
     protocol = "all"
   }
 
   ingress_security_rules {
     source = var.onprem_subnet_cidr_2
+=======
+    source   = var.onprem_subnet_cidr
+>>>>>>> 058bc53f163cd23e11e2a40cca22fb2e8e63c34e
     protocol = "all"
   }
 

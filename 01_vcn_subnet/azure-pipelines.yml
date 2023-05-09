@@ -2,6 +2,13 @@ parameters:
   - name: terraformVersion
     type: string
     default: 'latest'
+  - name: agentPool
+    displayName: 'Agent Pool Selection'
+    type: string
+    default: Self-Hosted
+    values:
+    - Self-Hosted
+    - Oracle-Cloud
 
 trigger:
 - none
@@ -14,7 +21,7 @@ stages:
     jobs:
       - job: 'terraforminitplan'
         displayName: 'Initialize and Plan Terraform for OCI VCN, Subnet and Security List'
-        pool: Self-Hosted
+        pool: ${{ parameters.agentPool }}
 
         steps:
 
@@ -60,7 +67,7 @@ stages:
     jobs:
       - deployment: 'TerraformApplyOCINetworking'   
         displayName: ' Apply Terraform for OCI Networking'
-        pool: 'Self-Hosted'
+        pool: ${{ parameters.agentPool }}
         environment: 'Oracle-Prod'
         strategy:
           runOnce:
