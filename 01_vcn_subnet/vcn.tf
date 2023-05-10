@@ -5,12 +5,12 @@ resource "oci_core_vcn" "main_vcn" {
   display_name   = var.vcn_display_name
 }
 
-resource "oci_core_internet_gateway" "main_internet_gateway" {
-  compartment_id = var.compartment_id
-  vcn_id         = oci_core_vcn.main_vcn.id
-  display_name   = var.internet_gateway_display_name
-  enabled        = "true"
-  freeform_tags  = merge(local.common_tags)
+resource "oci_core_nat_gateway" "main_nat_gateway" {
+    #Required
+    compartment_id = var.compartment_id
+    vcn_id = oci_core_vcn.main_vcn.id
+    display_name = var.nat_gateway_display_name
+    freeform_tags = merge(local.common_tags)
 }
 
 resource "oci_core_route_table" "main_route_table" {
@@ -19,7 +19,7 @@ resource "oci_core_route_table" "main_route_table" {
     display_name = var.route_table_display_name
     freeform_tags = merge(local.common_tags)
     route_rules {
-        network_entity_id = oci_core_internet_gateway.main_internet_gateway.id
+        network_entity_id = oci_core_nat_gateway.main_nat_gateway.id
         description = "Internet"
         destination = "0.0.0.0/0"
         destination_type = "CIDR_BLOCK"

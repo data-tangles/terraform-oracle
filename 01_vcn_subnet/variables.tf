@@ -43,9 +43,9 @@ variable "vcn_display_name" {
   description = "Display name for the VCN"
 }
 
-variable "internet_gateway_display_name" {
+variable "nat_gateway_display_name" {
   type        = string
-  description = "Display name for the Internet Gateway"
+  description = "Display name for the NAT Gateway"
 }
 
 variable "route_table_display_name" {
