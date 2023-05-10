@@ -19,7 +19,7 @@ resource "oci_core_route_table" "main_route_table" {
     display_name = var.route_table_display_name
     freeform_tags = merge(local.common_tags)
     route_rules {
-        network_entity_id = oci_core_internet_gateway.main_internet_gateway.id
+        network_entity_id = oci_core_nat_gateway.main_nat_gateway.id
         description = "Internet"
         destination = "0.0.0.0/0"
         destination_type = "CIDR_BLOCK"
@@ -44,6 +44,11 @@ resource "oci_core_drg" "main_vcn_drg" {
   freeform_tags  = merge(local.common_tags)
 }
 
+resource "oci_core_drg_attachment" "main_vcn_drg_attachment" {
+  drg_id        = oci_core_drg.main_vcn_drg.id
+  vcn_id        = oci_core_vcn.main_vcn.id
+  freeform_tags = merge(local.common_tags)
+}
 resource "oci_core_drg_attachment" "main_vcn_drg_attachment" {
   drg_id        = oci_core_drg.main_vcn_drg.id
   vcn_id        = oci_core_vcn.main_vcn.id
