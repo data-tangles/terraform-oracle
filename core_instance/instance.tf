@@ -43,7 +43,7 @@ resource "oci_core_instance" "linux_instance_k3s_1" {
 
   source_details {
     source_type = "image"
-    source_id   = var.image_source_id
+    source_id   = var.k3s_image_source_id
   }
 
   shape_config {
@@ -75,7 +75,7 @@ resource "oci_core_instance" "linux_instance_k3s_2" {
 
   source_details {
     source_type = "image"
-    source_id   = var.image_source_id
+    source_id   = var.k3s_image_source_id
   }
 
   shape_config {

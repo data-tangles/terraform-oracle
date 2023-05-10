@@ -113,7 +113,10 @@ variable "k3s_2_private_ip" {
   description = "Private IP for k3s instance 2"
 }
 
-
+variable "k3s_image_source_id" {
+  type        = string
+  description = "Image Source for k3s"
+}
 
 
 

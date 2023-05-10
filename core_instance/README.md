@@ -42,6 +42,7 @@ No modules.
 | <a name="input_k3s_2_instance_display_name"></a> [k3s\_2\_instance\_display\_name](#input\_k3s\_2\_instance\_display\_name) | Display name for k3s instance 2 | `string` | n/a | yes |
 | <a name="input_k3s_2_private_ip"></a> [k3s\_2\_private\_ip](#input\_k3s\_2\_private\_ip) | Private IP for k3s instance 2 | `string` | n/a | yes |
 | <a name="input_k3s_availability_domain"></a> [k3s\_availability\_domain](#input\_k3s\_availability\_domain) | Availability Domain for the k3s Core Instance | `string` | n/a | yes |
+| <a name="input_k3s_image_source_id"></a> [k3s\_image\_source\_id](#input\_k3s\_image\_source\_id) | Image Source for k3s | `string` | n/a | yes |
 | <a name="input_k3s_shape"></a> [k3s\_shape](#input\_k3s\_shape) | Shape of the k3s Core Instance | `string` | n/a | yes |
 | <a name="input_provider_fingerprint"></a> [provider\_fingerprint](#input\_provider\_fingerprint) | Fingerprint for the key pair | `string` | n/a | yes |
 | <a name="input_provider_private_key_path"></a> [provider\_private\_key\_path](#input\_provider\_private\_key\_path) | Private Key Path | `string` | n/a | yes |
