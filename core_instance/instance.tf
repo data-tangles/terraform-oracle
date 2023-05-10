@@ -10,7 +10,7 @@ resource "oci_core_instance" "linux_instance" {
     subnet_id        = var.subnet_id
     private_ip       = var.docker_private_ip
     display_name     = "${var.instance_display_name}-nic"
-    assign_public_ip = false
+    assign_public_ip = true
     freeform_tags    = merge(local.common_tags)
   }
 
@@ -37,7 +37,7 @@ resource "oci_core_instance" "linux_instance_k3s_1" {
     subnet_id        = var.subnet_id
     private_ip       = var.k3s_1_private_ip
     display_name     = "${var.k3s_1_instance_display_name}-nic"
-    assign_public_ip = false
+    assign_public_ip = true
     freeform_tags    = merge(local.common_tags)
   }
 
@@ -69,7 +69,7 @@ resource "oci_core_instance" "linux_instance_k3s_2" {
     subnet_id        = var.subnet_id
     private_ip       = var.k3s_2_private_ip
     display_name     = "${var.k3s_2_instance_display_name}-nic"
-    assign_public_ip = false
+    assign_public_ip = true
     freeform_tags    = merge(local.common_tags)
   }
 
