@@ -108,11 +108,6 @@ variable "vm_sl_name" {
   description = "Display name for the VM subnet Security List"
 }
 
-variable "on_prem_ip" {
-  type        = string
-  description = "Public IP of on prem environment"
-}
-
 
 
 
