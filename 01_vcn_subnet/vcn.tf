@@ -49,8 +49,3 @@ resource "oci_core_drg_attachment" "main_vcn_drg_attachment" {
   vcn_id        = oci_core_vcn.main_vcn.id
   freeform_tags = merge(local.common_tags)
 }
-resource "oci_core_drg_attachment" "main_vcn_drg_attachment" {
-  drg_id        = oci_core_drg.main_vcn_drg.id
-  vcn_id        = oci_core_vcn.main_vcn.id
-  freeform_tags = merge(local.common_tags)
-}
