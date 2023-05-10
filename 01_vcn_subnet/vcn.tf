@@ -10,7 +10,7 @@ resource "oci_core_internet_gateway" "main_internet_gateway" {
     compartment_id = var.compartment_id
     vcn_id = oci_core_vcn.main_vcn.id
     enabled = "true"
-    display_name = var.nat_gateway_display_name
+    display_name = var.internet_gateway_display_name
     freeform_tags = merge(local.common_tags)
 }
 
