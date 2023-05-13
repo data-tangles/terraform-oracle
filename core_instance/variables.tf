@@ -53,6 +53,11 @@ variable "instance_display_name" {
   description = "Shape for Core Instance"
 }
 
+variable "mgmt_instance_display_name" {
+  type        = string
+  description = "Shape for Management Core Instance"
+}
+
 variable "subnet_id" {
   type        = string
   description = "Subnet ID for Core Instance"
@@ -91,6 +96,11 @@ variable "instance_shape_config_ocpus" {
 variable "docker_private_ip" {
   type        = string
   description = "Private IP for Docker instance"
+}
+
+variable "mgmt_private_ip" {
+  type        = string
+  description = "Private IP for Management instance"
 }
 
 variable "k3s_1_instance_display_name" {

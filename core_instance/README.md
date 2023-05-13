@@ -25,6 +25,7 @@ No modules.
 | [oci_core_instance.linux_instance](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_instance) | resource |
 | [oci_core_instance.linux_instance_k3s_1](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_instance) | resource |
 | [oci_core_instance.linux_instance_k3s_2](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_instance) | resource |
+| [oci_core_instance.linux_management_instance](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_instance) | resource |
 
 ## Inputs
 
@@ -44,6 +45,8 @@ No modules.
 | <a name="input_k3s_availability_domain"></a> [k3s\_availability\_domain](#input\_k3s\_availability\_domain) | Availability Domain for the k3s Core Instance | `string` | n/a | yes |
 | <a name="input_k3s_image_source_id"></a> [k3s\_image\_source\_id](#input\_k3s\_image\_source\_id) | Image Source for k3s | `string` | n/a | yes |
 | <a name="input_k3s_shape"></a> [k3s\_shape](#input\_k3s\_shape) | Shape of the k3s Core Instance | `string` | n/a | yes |
+| <a name="input_mgmt_instance_display_name"></a> [mgmt\_instance\_display\_name](#input\_mgmt\_instance\_display\_name) | Shape for Management Core Instance | `string` | n/a | yes |
+| <a name="input_mgmt_private_ip"></a> [mgmt\_private\_ip](#input\_mgmt\_private\_ip) | Private IP for Management instance | `string` | n/a | yes |
 | <a name="input_provider_fingerprint"></a> [provider\_fingerprint](#input\_provider\_fingerprint) | Fingerprint for the key pair | `string` | n/a | yes |
 | <a name="input_provider_private_key_path"></a> [provider\_private\_key\_path](#input\_provider\_private\_key\_path) | Private Key Path | `string` | n/a | yes |
 | <a name="input_provider_region"></a> [provider\_region](#input\_provider\_region) | Oracle tenant region | `string` | n/a | yes |
