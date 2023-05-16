@@ -14,13 +14,13 @@ trigger:
 - none
 
 stages:
-  - stage: 'OCI_VCN_Subnet_SecurityList'
+  - stage: 'OCI_Networking'
     dependsOn: []
-    displayName: 'OCI VCN, Subnets and Security List'
+    displayName: 'OCI Networking'
 
     jobs:
       - job: 'terraforminitplan'
-        displayName: 'Initialize and Plan Terraform for OCI VCN, Subnet and Security List'
+        displayName: 'Initialize and Plan Terraform for OCI Networking'
         pool: ${{ parameters.agentPool }}
 
         steps:
@@ -33,20 +33,20 @@ stages:
           - task: CmdLine@2       
             inputs:
               script: |
-                terraform init -backend-config="/terraform/variables/backend_oracle.tf"
-              workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
+                terraform init -backend-config="/terraform/variables/terraform-oracle/networking/backend_oracle_networking.tf"
+              workingDirectory: '$(System.DefaultWorkingDirectory)/01_networking/'
 
           - task: CmdLine@2
             inputs:
               script: |
-                terraform plan -var-file="/terraform/variables/terraform-oracle/vcn_subnet/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
-              workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
+                terraform plan -var-file="/terraform/variables/terraform-oracle/networking/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+              workingDirectory: '$(System.DefaultWorkingDirectory)/01_networking/'
 
           - task: ArchiveFiles@2
             condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
             displayName: 'Create Plan Artifact'
             inputs:
-              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/01_networking/'
               includeRootFolder: false
               archiveType: 'tar'
               tarCompression: 'gz'
@@ -58,11 +58,11 @@ stages:
             displayName: 'Publish Plan Artifact'
             inputs:
               targetPath: '$(Build.ArtifactStagingDirectory)'
-              artifactName: 'oci-vcn-subnet-sl-plan'
+              artifactName: 'oci-networking-plan'
 
-  - stage: 'OCI_VCN_Subnet_SecurityList_Apply'
-    dependsOn: 'OCI_VCN_Subnet_SecurityList'
-    displayName: OCI VCN Subnet Security List Apply
+  - stage: 'OCI_Networking_Apply'
+    dependsOn: 'OCI_Networking'
+    displayName: OCI Networking Apply
 
     jobs:
       - deployment: 'TerraformApplyOCINetworking'   
@@ -82,12 +82,12 @@ stages:
               - task: ExtractFiles@1
                 displayName: 'Extract Plan Artifact'
                 inputs:
-                  archiveFilePatterns: '$(Pipeline.Workspace)/oci-vcn-subnet-sl-plan/$(Build.BuildNumber).tgz'
-                  destinationFolder: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
+                  archiveFilePatterns: '$(Pipeline.Workspace)/oci-networking-plan/$(Build.BuildNumber).tgz'
+                  destinationFolder: '$(System.DefaultWorkingDirectory)/01_networking/'
                   cleanDestinationFolder: true
 
               - task: CmdLine@2
                 inputs:
                   script: |
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan
-                  workingDirectory: '$(System.DefaultWorkingDirectory)/01_vcn_subnet/'
+                  workingDirectory: '$(System.DefaultWorkingDirectory)/01_networking/'
