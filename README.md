@@ -1,5 +1,6 @@
 [![terraform](https://img.shields.io/badge/Terraform-purple?style=for-the-badge&logo=terraform)](https://www.terraform.io/)
 [![oracle-cloud](https://img.shields.io/badge/Oracle-cloud-red?style=for-the-badge&logo=oracle)](https://www.oracle.com/cloud/)
+[![renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?style=for-the-badge&logo=renovatebot)](https://github.com/renovatebot/renovate)
 
 [![Build Status](https://dev.azure.com/qman-being/homelab/_apis/build/status%2Fterraform-oracle%2FOracle%20Networking?branchName=main)](https://dev.azure.com/qman-being/homelab/_build/latest?definitionId=38&branchName=main)
 
