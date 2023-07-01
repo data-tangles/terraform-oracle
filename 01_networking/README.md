@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/qman-being/homelab/_apis/build/status%2Fterraform-oracle%2F01_vcn_subnet%2FOracle%20Networking?branchName=main)](https://dev.azure.com/qman-being/homelab/_build/latest?definitionId=39&branchName=main)
+
 # 01_vcn_subnet
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
