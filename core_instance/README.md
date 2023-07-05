@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/qman-being/homelab/_apis/build/status%2Fterraform-oracle%2Fcore_instance%2FOracle%20Instance?branchName=refs%2Fpull%2F10%2Fmerge)](https://dev.azure.com/qman-being/homelab/_build/latest?definitionId=40&branchName=refs%2Fpull%2F10%2Fmerge)
+
 # core_instance
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
