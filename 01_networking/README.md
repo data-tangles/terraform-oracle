@@ -9,14 +9,14 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | 3.2.1 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.119.0 |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 5.4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_null"></a> [null](#provider\_null) | 3.2.1 |
-| <a name="provider_oci"></a> [oci](#provider\_oci) | 4.119.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | 5.4.0 |
 
 ## Modules
 
@@ -27,18 +27,18 @@ No modules.
 | Name | Type |
 |------|------|
 | [null_resource.wait](https://registry.terraform.io/providers/hashicorp/null/3.2.1/docs/resources/resource) | resource |
-| [oci_core_cpe.onprem_cpe](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_cpe) | resource |
-| [oci_core_drg.main_vcn_drg](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_drg) | resource |
-| [oci_core_drg_attachment.main_vcn_drg_attachment](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_drg_attachment) | resource |
-| [oci_core_internet_gateway.main_internet_gateway](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_internet_gateway) | resource |
-| [oci_core_ipsec.oci_ipsec_connection](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_ipsec) | resource |
-| [oci_core_ipsec_connection_tunnel_management.oci_ipsec_tunnel_1](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_ipsec_connection_tunnel_management) | resource |
-| [oci_core_ipsec_connection_tunnel_management.oci_ipsec_tunnel_2](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_ipsec_connection_tunnel_management) | resource |
-| [oci_core_route_table.main_route_table](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_route_table) | resource |
-| [oci_core_security_list.vm_sl](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_security_list) | resource |
-| [oci_core_subnet.vm_subnet](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_subnet) | resource |
-| [oci_core_vcn.main_vcn](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/resources/core_vcn) | resource |
-| [oci_core_ipsec_connection_tunnels.oci_ipsec_connection_tunnels](https://registry.terraform.io/providers/oracle/oci/4.119.0/docs/data-sources/core_ipsec_connection_tunnels) | data source |
+| [oci_core_cpe.onprem_cpe](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_cpe) | resource |
+| [oci_core_drg.main_vcn_drg](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_drg) | resource |
+| [oci_core_drg_attachment.main_vcn_drg_attachment](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_drg_attachment) | resource |
+| [oci_core_internet_gateway.main_internet_gateway](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_internet_gateway) | resource |
+| [oci_core_ipsec.oci_ipsec_connection](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_ipsec) | resource |
+| [oci_core_ipsec_connection_tunnel_management.oci_ipsec_tunnel_1](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_ipsec_connection_tunnel_management) | resource |
+| [oci_core_ipsec_connection_tunnel_management.oci_ipsec_tunnel_2](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_ipsec_connection_tunnel_management) | resource |
+| [oci_core_route_table.main_route_table](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_route_table) | resource |
+| [oci_core_security_list.vm_sl](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_security_list) | resource |
+| [oci_core_subnet.vm_subnet](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_subnet) | resource |
+| [oci_core_vcn.main_vcn](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/resources/core_vcn) | resource |
+| [oci_core_ipsec_connection_tunnels.oci_ipsec_connection_tunnels](https://registry.terraform.io/providers/oracle/oci/5.4.0/docs/data-sources/core_ipsec_connection_tunnels) | data source |
 
 ## Inputs
 
