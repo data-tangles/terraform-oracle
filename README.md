@@ -13,7 +13,7 @@ Collection of Terraform modules for Oracle Cloud
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | 2.4.0 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 4.107.0 |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci) | 5.4.0 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | 4.0.4 |
 
 ## Providers

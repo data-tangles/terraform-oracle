@@ -5,6 +5,12 @@ resource "oci_core_instance" "linux_instance" {
   compartment_id      = var.compartment_id
   shape               = var.shape
   display_name        = var.instance_display_name
+  freeform_tags       = merge(local.common_tags)
+
+  lifecycle {
+    ignore_changes = [freeform_tags["createdon"]]
+  }
+
 
   create_vnic_details {
     subnet_id        = var.subnet_id
@@ -12,6 +18,7 @@ resource "oci_core_instance" "linux_instance" {
     display_name     = "${var.instance_display_name}-nic"
     assign_public_ip = true
     freeform_tags    = merge(local.common_tags)
+
   }
 
   source_details {
@@ -32,6 +39,11 @@ resource "oci_core_instance" "linux_management_instance" {
   compartment_id      = var.compartment_id
   shape               = var.shape
   display_name        = var.mgmt_instance_display_name
+  freeform_tags       = merge(local.common_tags)
+
+  lifecycle {
+    ignore_changes = [freeform_tags["createdon"]]
+  }
 
   create_vnic_details {
     subnet_id        = var.subnet_id
@@ -39,6 +51,7 @@ resource "oci_core_instance" "linux_management_instance" {
     display_name     = "${var.mgmt_instance_display_name}-nic"
     assign_public_ip = true
     freeform_tags    = merge(local.common_tags)
+
   }
 
   source_details {
@@ -59,6 +72,12 @@ resource "oci_core_instance" "linux_instance_k3s_1" {
   compartment_id      = var.compartment_id
   shape               = var.k3s_shape
   display_name        = var.k3s_1_instance_display_name
+  freeform_tags       = merge(local.common_tags)
+
+  lifecycle {
+    ignore_changes = [freeform_tags["createdon"]]
+  }
+
 
   create_vnic_details {
     subnet_id        = var.subnet_id
@@ -66,6 +85,7 @@ resource "oci_core_instance" "linux_instance_k3s_1" {
     display_name     = "${var.k3s_1_instance_display_name}-nic"
     assign_public_ip = true
     freeform_tags    = merge(local.common_tags)
+
   }
 
   source_details {
@@ -91,6 +111,11 @@ resource "oci_core_instance" "linux_instance_k3s_2" {
   compartment_id      = var.compartment_id
   shape               = var.k3s_shape
   display_name        = var.k3s_2_instance_display_name
+  freeform_tags       = merge(local.common_tags)
+
+  lifecycle {
+    ignore_changes = [freeform_tags["createdon"]]
+  }
 
   create_vnic_details {
     subnet_id        = var.subnet_id
@@ -113,5 +138,4 @@ resource "oci_core_instance" "linux_instance_k3s_2" {
   metadata = {
     ssh_authorized_keys = file(var.ssh_public_key)
   }
-
 }

@@ -4,6 +4,10 @@ resource "oci_core_security_list" "vm_sl" {
   vcn_id         = oci_core_vcn.main_vcn.id
   freeform_tags  = merge(local.common_tags)
 
+  lifecycle {
+    ignore_changes = [freeform_tags["createdon"]]
+  }
+
   # Allow all inbound traffic within the VCN
   ingress_security_rules {
     description = "Allow inter subnet traffic"

@@ -4,6 +4,10 @@ resource "oci_core_cpe" "onprem_cpe" {
   display_name   = var.cpe_display_name
   ip_address     = var.cpe_ip_address
   freeform_tags  = merge(local.common_tags)
+
+  lifecycle {
+    ignore_changes = [freeform_tags["createdon"]]
+  }
 }
 
 resource "oci_core_ipsec" "oci_ipsec_connection" {

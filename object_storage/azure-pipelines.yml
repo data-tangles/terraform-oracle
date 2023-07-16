@@ -43,7 +43,7 @@ stages:
               workingDirectory: '$(System.DefaultWorkingDirectory)/object_storage/'
 
           - task: ArchiveFiles@2
-            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            condition: succeeded()
             displayName: 'Create Plan Artifact'
             inputs:
               rootFolderOrFile: '$(System.DefaultWorkingDirectory)/object_storage/'
@@ -54,7 +54,7 @@ stages:
               replaceExistingArchive: true
             
           - task: PublishPipelineArtifact@1
-            condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+            condition: succeeded()
             displayName: 'Publish Plan Artifact'
             inputs:
               targetPath: '$(Build.ArtifactStagingDirectory)'
