@@ -43,7 +43,7 @@ stages:
               workingDirectory: '$(System.DefaultWorkingDirectory)/core_instance/'
 
           - task: ArchiveFiles@2
-            condition: and(succeeded()
+            condition: and(succeeded())
             displayName: 'Create Plan Artifact'
             inputs:
               rootFolderOrFile: '$(System.DefaultWorkingDirectory)/core_instance/'
@@ -54,7 +54,7 @@ stages:
               replaceExistingArchive: true
             
           - task: PublishPipelineArtifact@1
-            condition: and(succeeded()
+            condition: and(succeeded())
             displayName: 'Publish Plan Artifact'
             inputs:
               targetPath: '$(Build.ArtifactStagingDirectory)'
