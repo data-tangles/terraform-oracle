@@ -25,12 +25,12 @@ stages:
 
         steps:
 
-          - task: TerraformInstaller@0
+          - task: TerraformInstaller@1
             displayName: 'Terraform Install'
             inputs:
               terraformVersion: ${{ parameters.terraformVersion }}
-  
-          - task: CmdLine@2       
+
+          - task: CmdLine@2
             inputs:
               script: |
                 terraform init -backend-config="/terraform/variables/terraform-oracle/object_storage/backend_oracle_object_storage.tf"
@@ -52,7 +52,7 @@ stages:
               tarCompression: 'gz'
               archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).tgz'
               replaceExistingArchive: true
-            
+
           - task: PublishPipelineArtifact@1
             condition: succeeded()
             displayName: 'Publish Plan Artifact'
@@ -65,7 +65,7 @@ stages:
     displayName: OCI Object Storage Apply
 
     jobs:
-      - deployment: 'TerraformApplyOCICoreInstance'   
+      - deployment: 'TerraformApplyOCICoreInstance'
         displayName: ' Apply Terraform for OCI Object Storage'
         pool: ${{ parameters.agentPool }}
         environment: 'Oracle-Prod'
@@ -74,11 +74,11 @@ stages:
             deploy:
               steps:
 
-              - task: TerraformInstaller@0
+              - task: TerraformInstaller@1
                 displayName: 'Terraform Install'
                 inputs:
                   terraformVersion: ${{ parameters.terraformVersion }}
-                  
+
               - task: ExtractFiles@1
                 displayName: 'Extract Plan Artifact'
                 inputs:
