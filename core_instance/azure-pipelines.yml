@@ -75,7 +75,7 @@ stages:
 
     jobs:
       - deployment: 'TerraformApplyOCICoreInstance'
-        displayName: ' Apply Terraform for OCI COre Instance'
+        displayName: ' Apply Terraform for OCI Core Instance'
         pool: ${{ parameters.agentPool }}
         environment: 'Oracle-Prod'
         strategy:
