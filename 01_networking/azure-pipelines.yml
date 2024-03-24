@@ -31,15 +31,23 @@ stages:
               terraformVersion: ${{ parameters.terraformVersion }}
 
           - task: CmdLine@2
+            name: terraformInit
             inputs:
               script: |
                 terraform init -backend-config="/terraform/variables/terraform-oracle/networking/backend_oracle_networking.tf"
               workingDirectory: '$(System.DefaultWorkingDirectory)/01_networking/'
 
           - task: CmdLine@2
+            name: terraformPlan
             inputs:
               script: |
-                terraform plan -var-file="/terraform/variables/terraform-oracle/networking/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan
+                terraform plan -var-file="/terraform/variables/terraform-oracle/networking/prod.tfvars" -out ${BUILD_BUILDNUMBER}.tfplan -detailed-exitcode
+
+                if [ $? -eq 2 ]; then
+                  echo "##vso[task.setvariable variable=planChanged;isOutput=true]true"
+                else
+                  echo "##vso[task.setvariable variable=planChanged;isOutput=true]false"
+                fi 
               workingDirectory: '$(System.DefaultWorkingDirectory)/01_networking/'
 
           - task: ArchiveFiles@2
@@ -62,6 +70,7 @@ stages:
 
   - stage: 'OCI_Networking_Apply'
     dependsOn: 'OCI_Networking'
+    condition: and(succeeded(), eq(dependencies.OCI_Networking.outputs['terraforminitplan.terraformPlan.planChanged'], 'true'))
     displayName: OCI Networking Apply
 
     jobs:
