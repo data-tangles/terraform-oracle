@@ -96,6 +96,7 @@ stages:
                   cleanDestinationFolder: true
 
               - task: CmdLine@2
+                displayName: 'Terraform Apply'
                 inputs:
                   script: |
                     terraform apply ${BUILD_BUILDNUMBER}.tfplan
