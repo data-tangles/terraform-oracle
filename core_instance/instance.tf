@@ -7,11 +7,6 @@ resource "oci_core_instance" "linux_instance" {
   display_name        = var.instance_display_name
   freeform_tags       = merge(local.common_tags)
 
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
-
-
   create_vnic_details {
     subnet_id        = var.subnet_id
     private_ip       = var.docker_private_ip
@@ -41,10 +36,6 @@ resource "oci_core_instance" "linux_management_instance" {
   display_name        = var.mgmt_instance_display_name
   freeform_tags       = merge(local.common_tags)
 
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
-
   create_vnic_details {
     subnet_id        = var.subnet_id
     private_ip       = var.mgmt_private_ip
@@ -73,11 +64,6 @@ resource "oci_core_instance" "linux_instance_k3s_1" {
   shape               = var.k3s_shape
   display_name        = var.k3s_1_instance_display_name
   freeform_tags       = merge(local.common_tags)
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
-
 
   create_vnic_details {
     subnet_id        = var.subnet_id
@@ -112,10 +98,6 @@ resource "oci_core_instance" "linux_instance_k3s_2" {
   shape               = var.k3s_shape
   display_name        = var.k3s_2_instance_display_name
   freeform_tags       = merge(local.common_tags)
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
 
   create_vnic_details {
     subnet_id        = var.subnet_id
