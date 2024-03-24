@@ -3,10 +3,6 @@ resource "oci_core_vcn" "main_vcn" {
   cidr_blocks    = var.vcn_cidr_blocks
   display_name   = var.vcn_display_name
   freeform_tags  = merge(local.common_tags)
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
 }
 
 resource "oci_core_internet_gateway" "main_internet_gateway" {
@@ -16,10 +12,6 @@ resource "oci_core_internet_gateway" "main_internet_gateway" {
   enabled        = "true"
   display_name   = var.internet_gateway_display_name
   freeform_tags  = merge(local.common_tags)
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
 }
 
 resource "oci_core_route_table" "main_route_table" {
@@ -27,10 +19,6 @@ resource "oci_core_route_table" "main_route_table" {
   vcn_id         = oci_core_vcn.main_vcn.id
   display_name   = var.route_table_display_name
   freeform_tags  = merge(local.common_tags)
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
 
   route_rules {
     network_entity_id = oci_core_internet_gateway.main_internet_gateway.id
@@ -56,18 +44,10 @@ resource "oci_core_drg" "main_vcn_drg" {
   compartment_id = var.compartment_id
   display_name   = var.drg_display_name
   freeform_tags  = merge(local.common_tags)
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
 }
 
 resource "oci_core_drg_attachment" "main_vcn_drg_attachment" {
   drg_id        = oci_core_drg.main_vcn_drg.id
   vcn_id        = oci_core_vcn.main_vcn.id
   freeform_tags = merge(local.common_tags)
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
 }

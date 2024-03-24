@@ -8,8 +8,4 @@ resource "oci_core_subnet" "vm_subnet" {
   freeform_tags     = merge(local.common_tags)
   display_name      = var.vm_subnet_display_name
   security_list_ids = [oci_core_security_list.vm_sl.id]
-
-  lifecycle {
-    ignore_changes = [freeform_tags["createdon"]]
-  }
 }
