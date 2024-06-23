@@ -5,7 +5,15 @@ terraform {
       version = "5.42.0"
     }
   }
-  backend "remote" {}
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "#{TERRAFORM_ORGANIZATION}#"
+    token        = "#{TERRAFORM_TOKEN}#"
+
+    workspaces {
+      name = "#{TERRAFORM_CORE_INSTANCE_WORKSPACE}#"
+    }
+  }
 }
 
 provider "oci" {
