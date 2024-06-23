@@ -28,11 +28,6 @@ variable "tag_environment" {
   description = "Tag Value for Environment"
 }
 
-variable "tag_purpose" {
-  type        = string
-  description = "Tag Value for Purpose"
-}
-
 variable "compartment_id" {
   type        = string
   description = "Compartment ID for Oracle Tenant"

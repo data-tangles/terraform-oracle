@@ -1,7 +1,20 @@
 locals {
-  common_tags = {
+  docker_tags = {
     environment = var.tag_environment
-    purpose     = var.tag_purpose
+    purpose     = "Docker Host"
+    createdby   = "Terraform"
+  }
+
+  mgmt_tags = {
+    environment = var.tag_environment
+    purpose     = "Management Node"
+    createdby   = "Terraform"
+  }
+
+  k3s_tags = {
+    environment = var.tag_environment
+    purpose     = "k3s Node"
     createdby   = "Terraform"
   }
 }
+

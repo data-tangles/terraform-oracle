@@ -5,14 +5,14 @@ resource "oci_core_instance" "linux_instance" {
   compartment_id      = var.compartment_id
   shape               = var.shape
   display_name        = var.instance_display_name
-  freeform_tags       = merge(local.common_tags)
+  freeform_tags       = merge(local.docker_tags)
 
   create_vnic_details {
     subnet_id        = var.subnet_id
     private_ip       = var.docker_private_ip
     display_name     = "${var.instance_display_name}-nic"
     assign_public_ip = true
-    freeform_tags    = merge(local.common_tags)
+    freeform_tags    = merge(local.docker_tags)
 
   }
 
@@ -34,14 +34,14 @@ resource "oci_core_instance" "linux_management_instance" {
   compartment_id      = var.compartment_id
   shape               = var.shape
   display_name        = var.mgmt_instance_display_name
-  freeform_tags       = merge(local.common_tags)
+  freeform_tags       = merge(local.mgmt_tags)
 
   create_vnic_details {
     subnet_id        = var.subnet_id
     private_ip       = var.mgmt_private_ip
     display_name     = "${var.mgmt_instance_display_name}-nic"
     assign_public_ip = true
-    freeform_tags    = merge(local.common_tags)
+    freeform_tags    = merge(local.mgmt_tags)
 
   }
 
@@ -63,14 +63,14 @@ resource "oci_core_instance" "linux_instance_k3s_1" {
   compartment_id      = var.compartment_id
   shape               = var.k3s_shape
   display_name        = var.k3s_1_instance_display_name
-  freeform_tags       = merge(local.common_tags)
+  freeform_tags       = merge(local.k3s_tags)
 
   create_vnic_details {
     subnet_id        = var.subnet_id
     private_ip       = var.k3s_1_private_ip
     display_name     = "${var.k3s_1_instance_display_name}-nic"
     assign_public_ip = true
-    freeform_tags    = merge(local.common_tags)
+    freeform_tags    = merge(local.k3s_tags)
 
   }
 
@@ -97,14 +97,14 @@ resource "oci_core_instance" "linux_instance_k3s_2" {
   compartment_id      = var.compartment_id
   shape               = var.k3s_shape
   display_name        = var.k3s_2_instance_display_name
-  freeform_tags       = merge(local.common_tags)
+  freeform_tags       = merge(local.k3s_tags)
 
   create_vnic_details {
     subnet_id        = var.subnet_id
     private_ip       = var.k3s_2_private_ip
     display_name     = "${var.k3s_2_instance_display_name}-nic"
     assign_public_ip = true
-    freeform_tags    = merge(local.common_tags)
+    freeform_tags    = merge(local.k3s_tags)
   }
 
   source_details {
