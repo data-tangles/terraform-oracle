@@ -22,9 +22,8 @@ resource "oci_core_instance" "linux_instance" {
   }
 
   metadata = {
-    ssh_authorized_keys = file(var.ssh_public_key)
+    ssh_authorized_keys = var.ssh_public_key
   }
-
 }
 
 # Management Node
@@ -51,9 +50,8 @@ resource "oci_core_instance" "linux_management_instance" {
   }
 
   metadata = {
-    ssh_authorized_keys = file(var.ssh_public_key)
+    ssh_authorized_keys = var.ssh_public_key
   }
-
 }
 
 # k3s Node 1
@@ -85,9 +83,8 @@ resource "oci_core_instance" "linux_instance_k3s_1" {
   }
 
   metadata = {
-    ssh_authorized_keys = file(var.ssh_public_key)
+    ssh_authorized_keys = var.ssh_public_key
   }
-
 }
 
 # k3s Node 2
@@ -118,6 +115,6 @@ resource "oci_core_instance" "linux_instance_k3s_2" {
   }
 
   metadata = {
-    ssh_authorized_keys = file(var.ssh_public_key)
+    ssh_authorized_keys = var.ssh_public_key
   }
 }
