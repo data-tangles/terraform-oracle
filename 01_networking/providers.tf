@@ -24,7 +24,7 @@ provider "oci" {
   tenancy_ocid     = var.provider_tenancy_ocid
   user_ocid        = var.provider_user_ocid
   fingerprint      = var.provider_fingerprint
-  private_key      = "<<EOT ${var.provider_private_key} EOT"
+  private_key      = "${var.provider_private_key}" 
   region           = var.provider_region
 }
 
