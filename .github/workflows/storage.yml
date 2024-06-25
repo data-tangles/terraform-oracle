@@ -33,7 +33,7 @@ jobs:
       - name: Replace Tokens 🪙
         uses: cschleiden/replace-tokens@4d5a042c84c3568b3858b7af9394923d2d5195c9 # v1.3
         with:
-          files: '["./object_storage/*.*"]'
+          files: '["./object_storage/**/*.*"]'
 
       - name: Install Terraform ⛰️
         uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # v3
