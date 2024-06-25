@@ -15,7 +15,7 @@ variable "provider_fingerprint" {
 
 variable "provider_private_key_path" {
   type        = string
-  description = "Private Key Path"
+  description = "Private Key"
 }
 
 variable "provider_region" {
@@ -26,11 +26,6 @@ variable "provider_region" {
 variable "tag_environment" {
   type        = string
   description = "Tag Value for Environment"
-}
-
-variable "tag_purpose" {
-  type        = string
-  description = "Tag Value for Purpose"
 }
 
 variable "compartment_id" {

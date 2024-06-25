@@ -15,7 +15,7 @@ variable "provider_fingerprint" {
 
 variable "provider_private_key_path" {
   type        = string
-  description = "Private Key Path"
+  description = "Private Key"
 }
 
 variable "provider_region" {
