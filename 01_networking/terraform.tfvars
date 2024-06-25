@@ -1,7 +1,7 @@
 provider_tenancy_ocid         = "#{PROVIDER_TENANCY_OCID}#"
 provider_user_ocid            = "#{PROVIDER_USER_OCID}#"
 provider_fingerprint          = "#{PROVIDER_FINGERPRINT}#"
-provider_private_key          = #{PROVIDER_PRIVATE_KEY}#
+provider_private_key_path     = "./keys/provider_key.pk"
 provider_region               = "#{PROVIDER_REGION}#"
 tag_environment               = "#{TAG_ENVIRONMENT}#"
 compartment_id                = "#{COMPARTMENT_ID}#"

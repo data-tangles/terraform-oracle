@@ -13,7 +13,7 @@ variable "provider_fingerprint" {
   description = "Fingerprint for the key pair"
 }
 
-variable "provider_private_key" {
+variable "provider_private_key_path" {
   type        = string
   description = "Private Key"
 }
