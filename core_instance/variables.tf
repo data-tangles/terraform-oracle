@@ -43,7 +43,7 @@ variable "shape" {
   description = "Shape for Core Instance"
 }
 
-variable "instance_display_name" {
+variable "docker_instance_display_name" {
   type        = string
   description = "Shape for Core Instance"
 }
